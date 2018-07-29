@@ -1,0 +1,1 @@
+C:\Users\Web App Develop .Net\Desktop\dotnet51\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe.config
