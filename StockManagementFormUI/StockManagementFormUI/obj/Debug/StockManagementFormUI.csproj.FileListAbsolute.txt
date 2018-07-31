@@ -1,1 +1,10 @@
 C:\Users\Web App Develop .Net\Desktop\dotnet51\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe.config
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe.config
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.pdb
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csprojResolveAssemblyReference.cache
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.Properties.Resources.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.StockInForm.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csproj.GenerateResource.Cache
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.exe
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.pdb
