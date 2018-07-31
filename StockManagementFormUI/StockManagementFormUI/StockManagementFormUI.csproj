@@ -51,6 +51,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\StockInOut.cs" />
+    <Compile Include="Model\Transactions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockInForm.cs">

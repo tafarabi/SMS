@@ -17,6 +17,5 @@ namespace StockManagementFormUI.Model
         public string Date { get; set; }
 
         public string Status { get; set; }
-        public string categoryId { get; set; }
     }
 }

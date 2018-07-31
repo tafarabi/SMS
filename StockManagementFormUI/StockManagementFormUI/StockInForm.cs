@@ -16,8 +16,10 @@ namespace StockManagementFormUI
     {
         public string _categoryId;
         public string _companyId;
+        public int _itemId;
+        public int _availq;
 
-        static string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
+        static string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
 
         SqlConnection con = new SqlConnection(connectionString);
 
@@ -29,9 +31,20 @@ namespace StockManagementFormUI
         private void SaveButton_Click(object sender, EventArgs e)
         {
             StockInOut stockInOut = new StockInOut();
+            Transactions transactions = new Transactions();
+            DateTime today = DateTime.Today;
+            stockInOut.ItemId = Convert.ToInt32(itemComboBox.SelectedValue.ToString());
+            stockInOut.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
+            stockInOut.StockId = 1;
+            stockInOut.Status = null;
+            stockInOut.Date = today.ToString("dd/MM/yyyy");
+           // _itemId = stockInOut.ItemId;
+            _availq = Update(transactions) + stockInOut.Quantity;
+            transactions.AvailableQuantity = _availq;
+            Add(stockInOut);
 
+            MessageBox.Show(transactions.AvailableQuantity.ToString());
 
-            MessageBox.Show(categoryComboBox.SelectedValue.ToString());
         }
 
         private void StockInForm_Load(object sender, EventArgs e)
@@ -52,8 +65,6 @@ namespace StockManagementFormUI
             companyComboBox.DisplayMember = "Name";
             companyComboBox.DataSource = ds.Tables["Company"];
 
-           
-
             DataSet ds1 = new DataSet();
             da1.Fill(ds1, "Category");
 
@@ -69,30 +80,78 @@ namespace StockManagementFormUI
 
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StockInOut stockInOut = new StockInOut();
-            GetItem(stockInOut);
-        }
+            
+            _companyId = companyComboBox.SelectedValue.ToString();
+            _categoryId = categoryComboBox.SelectedValue.ToString();
+            string query = @"Select Id,Name from Items where CompanyId =  '" + _companyId + "' AND CategoryId = '" + _categoryId + "'";
 
-        private void GetItem(StockInOut stockInOut)
-        {
-            stockInOut.categoryId = categoryComboBox.SelectedValue.ToString();
-
-            string query = @"SELECT Id,Name FROM Items where CategoryId = stockInOut.categoryId";
-   
 
             SqlDataAdapter da = new SqlDataAdapter(query, con);
-    
-            con.Open();
-
-
             DataSet ds = new DataSet();
             da.Fill(ds, "Item");
-
             itemComboBox.ValueMember = "Id";
             itemComboBox.DisplayMember = "Name";
             itemComboBox.DataSource = ds.Tables["Item"];
+            
+            con.Close();
+
+            itemComboBox.Text = string.Empty;
+           
+        }
+
+
+
+
+        private int Update(Transactions transactions)
+        {
+            Int32 Availableq=0;
+            string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
+
+            SqlConnection con = new SqlConnection(connectionString);
+
+            string query = @"select AvailableQuantity from Transactions  where ItemId = '" + _itemId + "'";
+            SqlCommand command = new SqlCommand(query, con);
+
+            con.Open();
+
+            Availableq = (int) command.ExecuteScalar();
+
 
             con.Close();
+            return Availableq;
         }
+
+         private bool Add(StockInOut stockInOut)
+        {
+            string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
+
+            SqlConnection con = new SqlConnection(connectionString);
+
+            string query = @"INSERT INTO StockInOut VALUES('" + stockInOut.ItemId + "','" + stockInOut.Quantity + "','" +
+                           stockInOut.StockId + "','" + stockInOut.Date + "','" + stockInOut.Status + "') UPDATE Transactions SET AvailableQuantity = '" + _availq + "' WHERE ItemId = '" + _itemId + "' ";
+            SqlCommand command = new SqlCommand(query, con);
+
+            con.Open();
+
+            bool isAdded = command.ExecuteNonQuery() > 0;
+
+
+            con.Close();
+            return isAdded;
+        }
+
+         private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             categoryComboBox.Text = string.Empty;
+             itemComboBox.Text = string.Empty;
+         }
+
+         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         {
+           
+         }
+        
+            
+        
     }
 }

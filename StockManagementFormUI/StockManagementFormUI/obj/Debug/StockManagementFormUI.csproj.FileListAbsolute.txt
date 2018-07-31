@@ -8,3 +8,12 @@ C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\D
 C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csproj.GenerateResource.Cache
 C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.exe
 C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.pdb
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe.config
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.exe
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.pdb
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.exe
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\bin\Debug\StockManagementFormUI.pdb
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.Properties.Resources.resources
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.StockInForm.resources
+C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csproj.GenerateResource.Cache

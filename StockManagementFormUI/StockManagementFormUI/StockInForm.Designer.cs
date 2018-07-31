@@ -50,6 +50,7 @@
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(162, 21);
             this.companyComboBox.TabIndex = 0;
+            this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
             // categoryComboBox
             // 
@@ -67,6 +68,7 @@
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(162, 21);
             this.itemComboBox.TabIndex = 2;
+            this.itemComboBox.SelectedIndexChanged += new System.EventHandler(this.itemComboBox_SelectedIndexChanged);
             // 
             // reorderLabel
             // 
