@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockManagementFormUI.UI.Category;
+using StockManagementInfoApp.UI;
 
 namespace StockManagementFormUI
 {
@@ -16,7 +18,7 @@ namespace StockManagementFormUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockInForm());
+            Application.Run(new Form1());
         }
     }
 }

@@ -19,7 +19,7 @@ namespace StockManagementFormUI
         public int _itemId;
         public int _availq;
 
-        static string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
+        static string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
 
         SqlConnection con = new SqlConnection(connectionString);
 
@@ -30,26 +30,67 @@ namespace StockManagementFormUI
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            StockInOut stockInOut = new StockInOut();
-            Transactions transactions = new Transactions();
-            DateTime today = DateTime.Today;
-            stockInOut.ItemId = Convert.ToInt32(itemComboBox.SelectedValue.ToString());
-            stockInOut.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
-            stockInOut.StockId = 1;
-            stockInOut.Status = null;
-            stockInOut.Date = today.ToString("dd/MM/yyyy");
-           // _itemId = stockInOut.ItemId;
-            _availq = Update(transactions) + stockInOut.Quantity;
-            transactions.AvailableQuantity = _availq;
-            Add(stockInOut);
+            try
+            {
+                StockInOut stockInOut = new StockInOut();
+                Transactions transactions = new Transactions();
+                DateTime today = DateTime.Today;
+                stockInOut.ItemId = Convert.ToInt32(itemComboBox.SelectedValue.ToString());
+                stockInOut.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
+                stockInOut.StockId = 1;
+                stockInOut.Status = null;
+                stockInOut.Date = today.ToString("dd/MM/yyyy");
+                _availq = Update(transactions) + stockInOut.Quantity;
+                transactions.AvailableQuantity = _availq;
+               bool isAdded = Add(stockInOut);
+                if (isAdded)
+                {
+                    MessageBox.Show("Stock In successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
 
-            MessageBox.Show(transactions.AvailableQuantity.ToString());
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void StockInForm_Load(object sender, EventArgs e)
         {
-            
+            CateroyCompanyCombo();
+        }
+
+        private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            categoryComboBox.Text = string.Empty;
+            itemComboBox.Text = string.Empty;
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ItemCombo();
+        }
+
+        private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            _itemId = Convert.ToInt32(itemComboBox.SelectedValue.ToString());
+            StockInOut stockInOut = new StockInOut();
+            if (itemComboBox.SelectedIndex > 0)
+            {
+                reorderLabel.Text = OrderLevelCheck(stockInOut).ToString();
+                availableQuantityLabel.Text = availLevelCheck(stockInOut).ToString();
+            }
+
+
+        }
+        private void CateroyCompanyCombo()
+        {
             string query = @"SELECT Id,Name FROM Companies";
             string query1 = @"SELECT Id,Name FROM Categories";
 
@@ -72,40 +113,41 @@ namespace StockManagementFormUI
             categoryComboBox.DisplayMember = "Name";
             categoryComboBox.DataSource = ds1.Tables["Category"];
 
-            
-            con.Close();
-           
 
+            con.Close();
         }
 
-        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemCombo()
         {
-            
+
             _companyId = companyComboBox.SelectedValue.ToString();
             _categoryId = categoryComboBox.SelectedValue.ToString();
             string query = @"Select Id,Name from Items where CompanyId =  '" + _companyId + "' AND CategoryId = '" + _categoryId + "'";
 
 
             SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Item");
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+
+            DataRow row = ds.NewRow();
+            row[0] = 0;
+            row[1] = "-------";
+            ds.Rows.InsertAt(row, 0);
+
+
+
             itemComboBox.ValueMember = "Id";
             itemComboBox.DisplayMember = "Name";
-            itemComboBox.DataSource = ds.Tables["Item"];
-            
-            con.Close();
-
+            itemComboBox.DataSource = ds;
             itemComboBox.Text = string.Empty;
-           
+            con.Close();
         }
-
-
 
 
         private int Update(Transactions transactions)
         {
             Int32 Availableq=0;
-            string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
+            string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
 
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -123,7 +165,7 @@ namespace StockManagementFormUI
 
          private bool Add(StockInOut stockInOut)
         {
-            string connectionString = @"server=PC-301-22\SQLEXPRESS; database=StockManagement; integrated security=true";
+            string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
 
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -140,18 +182,34 @@ namespace StockManagementFormUI
             return isAdded;
         }
 
-         private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         private int OrderLevelCheck(StockInOut stockInOut)
          {
-             categoryComboBox.Text = string.Empty;
-             itemComboBox.Text = string.Empty;
+             Int32 reorder = 0;
+             string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
+
+             SqlConnection con = new SqlConnection(connectionString);
+             string query = @"SELECT ReorderLevel FROM Items WHERE Id = '" + _itemId + "' ";
+             SqlCommand command = new SqlCommand(query, con);
+             
+             con.Open();
+             reorder = (int)command.ExecuteScalar();
+             con.Close();
+             return reorder;
          }
 
-         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         private int availLevelCheck(StockInOut stockInOut)
          {
-           
+             Int32 avail = 0;
+             string connectionString = @"server=DESKTOP-412B1P8\SQLEXPRESS; database=StockManagement; integrated security=true";
+
+             SqlConnection con = new SqlConnection(connectionString);
+             string query = @"SELECT AvailableQuantity FROM Transactions WHERE ItemId = '" + _itemId + "'  ";
+             SqlCommand command = new SqlCommand(query, con);
+
+             con.Open();
+             avail = (int)command.ExecuteScalar();
+             con.Close();
+             return avail;
          }
-        
-            
-        
     }
 }

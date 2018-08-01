@@ -1,0 +1,11 @@
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\bin\Debug\StockManagementInfoApp.exe.config
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\bin\Debug\StockManagementInfoApp.exe
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\bin\Debug\StockManagementInfoApp.pdb
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.csprojResolveAssemblyReference.cache
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.Form1.resources
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.Properties.Resources.resources
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.UI.Category.CategoryUI.resources
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.UI.CompanyUI.resources
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.csproj.GenerateResource.Cache
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.exe
+E:\Bitm file\StockManagementInfoApp\StockManagementInfoApp\obj\Debug\StockManagementInfoApp.pdb

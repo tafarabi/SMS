@@ -17,3 +17,9 @@ C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockMana
 C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.Properties.Resources.resources
 C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.StockInForm.resources
 C:\Users\Web App Develop .Net\Desktop\Farabi\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.csproj.GenerateResource.Cache
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.StockOutForm.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.ItemCreateUI.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.SearchAndViewItems.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.UI.Category.CategoryUI.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementInfoApp.UI.CompanyUI.resources
+C:\Users\farabi\Desktop\c#\SMS\StockManagementFormUI\StockManagementFormUI\obj\Debug\StockManagementFormUI.Form1.resources
